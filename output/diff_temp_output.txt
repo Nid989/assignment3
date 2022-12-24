@@ -1,0 +1,123 @@
+ -------------------------- STARTING TRAINING -------------------------- 
+[0m 20s (100 3.33%) 2.8162]
+[0m 36s (200 6.67%) 2.1778]
+[0m 51s (300 10.00%) 2.0909]
+[1m 5s (400 13.33%) 2.0739]
+[1m 20s (500 16.67%) 1.8535]
+[1m 35s (600 20.00%) 1.9694]
+[1m 51s (700 23.33%) 1.8952]
+[2m 6s (800 26.67%) 1.8292]
+[2m 22s (900 30.00%) 1.9256]
+[2m 38s (1000 33.33%) 1.8136]
+[3m 1s (1100 36.67%) 1.8888]
+[3m 16s (1200 40.00%) 1.9926]
+[3m 30s (1300 43.33%) 1.7854]
+[3m 46s (1400 46.67%) 1.6678]
+[4m 2s (1500 50.00%) 1.6639]
+[4m 17s (1600 53.33%) 1.8957]
+[4m 35s (1700 56.67%) 1.7552]
+[4m 53s (1800 60.00%) 1.6309]
+[5m 10s (1900 63.33%) 1.8330]
+[5m 27s (2000 66.67%) 1.7958]
+[5m 45s (2100 70.00%) 1.7757]
+[6m 3s (2200 73.33%) 1.7381]
+[6m 18s (2300 76.67%) 1.9766]
+[6m 34s (2400 80.00%) 1.8101]
+[6m 49s (2500 83.33%) 1.6476]
+[7m 9s (2600 86.67%) 1.7260]
+[7m 30s (2700 90.00%) 1.7530]
+[7m 51s (2800 93.33%) 1.6884]
+[8m 11s (2900 96.67%) 1.4986]
+[8m 27s (3000 100.00%) 1.6116]
+temperature: 0.5
+prediction: l as it have about in his the down to have it was she more strone, but the looking and a more to his ever it drack the back.  It to his was have and so was a seen as I should have was the scould in have bouter 
+original: l as it had been once.
+
+'You will find her father a white-haired old man,' said my aunt,
+'though a better man in all other respects - a reclaimed man. 
+Neither will you find him measuring all human int
+---------------------------------------------------------------
+temperature: 0.55
+prediction:  I had had amoness of all a bell the would be him was a such with so the could have little had was she some and so it of it was to the bouth his have the raisher.
+
+He would at not who know should as any have an
+original:  I had had.  Mr. Dick, as usual,
+was not forgotten.  My aunt informed me how he incessantly occupied
+himself in copying everything he could lay his hands on, and kept
+King Charles the First at a respec
+---------------------------------------------------------------
+temperature: 0.6
+prediction: d divers some was of it at the would her to it that his another that which I am I would do elver little in the man it had would and the 
+for the boutive do to stark and and the word to any come 
+reperice of it,
+original: d divers small sums
+of money, on account of those 'pecuniary liabilities', in reference
+to which he had been so business-like as between man and man; how
+Janet, returning into my aunt's service when sh
+---------------------------------------------------------------
+temperature: 0.65
+prediction:  state of have the objection of the belies, on her too have from the was his do at the corner, and she oner and the have found on the reforness of him up and the darks havive of his her bening an to my not the 
+original:  state of mind of a patient who had become deranged
+from excessive drinking.
+'And I assure you, sir,' he said, 'I am extremely nervous on such
+occasions.  I could not support being what is called Bulli
+---------------------------------------------------------------
+temperature: 0.7
+prediction: nt had fine hope.  ES she couldn't man,
+she strance to with a ture to collectual, and her her to emps in there had it the bust her poster brighter and a rooms to there was her so, I am all hussed again that my 
+original: nt had finally set her seal on the same great principle, by
+aiding and abetting the bride, and crowning the marriage-ceremony
+with her presence; were among our topics - already more or less
+familiar to
+---------------------------------------------------------------
+temperature: 0.75
+prediction: ired old more of Pecarry.  I not respressestion, and I have had many, and carking if, any but had driod.
+
+"We shime on the sholl,
+and it to that his some in a face, jeenter, so an the suchout of the lade of any
+original: ired old man,' said my aunt,
+'though a better man in all other respects - a reclaimed man. 
+Neither will you find him measuring all human interests, and joys,
+and sorrows, with his one poor little inch
+---------------------------------------------------------------
+temperature: 0.8
+prediction: informed man, bench.  He man, ruinted there withouth thought of her 
+bloorder forcer.  I for the was not.  They rejoyed as I sazred without to at the courtard, and 
+virence 
+so for that that under together.  ' 
+original: informed me how he incessantly occupied
+himself in copying everything he could lay his hands on, and kept
+King Charles the First at a respectful distance by that semblance
+of employment; how it was one
+---------------------------------------------------------------
+temperature: 0.85
+prediction: nd rewards of himself.  That fir oncter cranionacled 
+Peggotting and too have but of the persloll to go voys and
+wouldn't his should his the would hoom day pourable.  He any occould bight a may rose.  Tord.  'A
+original: nd rewards of her
+life that he was free and happy, instead of pining in monotonous
+restraint; and how (as a novel general conclusion) nobody but she
+could ever fully know what he was.
+
+'And when, Trot,
+---------------------------------------------------------------
+temperature: 0.9
+prediction: unciation at her the fad had anoter Walled to sake of ficmorate so nose was you orstone, "Is debliness of movants, but a stair has nob it.
+
+  "  "THE Pocry ople arm, and ding no fallimate, and you said being lo
+original: unciation of mankind by
+entering into wedlock with a thriving tavern-keeper; and how my
+aunt had finally set her seal on the same great principle, by
+aiding and abetting the bride, and crowning the mar
+---------------------------------------------------------------
+temperature: 0.95
+prediction: ly?' and as it some
+lanced to hough while shesersage would how reaches 
+for ma beet?'
+
+I Mr. WHProover to the arm; was sir, so the quebural edroft of speaterwar into expoor the come to rijed to in to child of t
+original: ly?' and almost
+immediately called for a candle, and went to bed, as if he were not
+quite safe anywhere else.  He did not actually stagger under the
+negus; but I should think his placid little pulse mu
+---------------------------------------------------------------
