@@ -40,12 +40,6 @@ def main():
         action='store_true'
     )
 
-    parser.add_argument(
-        '--try_shakespeare', dest="try_shakespeare",
-        help="Train LSTM using default hyperparameter and t8_shakespeare",
-        action='store_true'
-    )
-
     # load config.yaml file
     with open(r'config.yaml') as file:
         config = yaml.full_load(file)
@@ -108,43 +102,6 @@ def main():
     if args.diff_temp:
         temp_list = [0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95]
         diff_temp(temp_list)
-
-    if args.try_shakespeare:
-        n_epochs = config["default"]["num_epochs"]
-        print_every = 100
-        plot_every = 10
-        hidden_size = config["default"]["hidden_size"]
-        n_layers = config["default"]["num_layers"]
-        lr = float(config["default"]["lr"])
-
-        decoder = LSTM(
-            input_size=n_characters, 
-            hidden_size=hidden_size,
-            num_layers=n_layers, 
-            output_size=n_characters)
-
-        decoder_optimizer = get_optimizer(decoder=decoder, optim=config["default"]["optimizer"], lr=lr)
-
-        start = time.time()
-        all_losses = []
-        loss_avg = 0
-
-        PATH = './data/t8_shakespeare.txt'  
-
-        print(" -------------------------- STARTING TRAINING -------------------------- ")
-    
-        for epoch in range(1, n_epochs+1):
-
-            loss = train(decoder, decoder_optimizer, *random_training_set(file_path=PATH))
-            loss_avg += loss
-
-            if epoch % print_every == 0:
-                print('[{} ({} {}%) {:.4f}]'.format(time_since(start), epoch, epoch/n_epochs * 100, loss))
-                print(generate(decoder, 'A', 100), '\n')
-
-            if epoch % plot_every == 0:
-                all_losses.append(loss_avg / plot_every)
-                loss_avg = 0 
 
 if __name__ == "__main__":
     main()
