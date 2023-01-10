@@ -25,7 +25,7 @@ def generate(decoder, prime_str='A', predict_len=100, temperature=0.8):
     inp = prime_input[-1]
 
     for p in range(predict_len):
-        output, (hidden, cell) = decoder(inp.view(1).to(device), hidden, cell)
+        output, (hidden, cell) = decoder(inp.view(1).to(device), (hidden, cell))
 
         # Sample from the network as a multinomial distribution
         output_dist = output.data.view(-1).div(temperature).exp()
@@ -61,7 +61,7 @@ def train(decoder, decoder_optimizer, inp, target):
     return loss.item() / CHUNK_LEN
 
 
-def train_(decoder, decoder_optimizer, inp, target, criterion):
+def tuner_train(decoder, decoder_optimizer, inp, target, criterion):
 
     # push PyTorch model and other associated params. and attr. to same device "cuda" OR "cpu" 
     decoder = decoder.to(device)
@@ -103,7 +103,7 @@ def tuner(n_epochs=3000, print_every=100, plot_every=10, hidden_size=128, n_laye
         print(" -------------------------- STARTING TRAINING -------------------------- ")
 
         for epoch in range(1, n_epochs+1):
-            loss = train_(decoder, decoder_optimizer, *random_training_set(), criterion)
+            loss = tuner_train(decoder, decoder_optimizer, *random_training_set(), criterion)
             loss_avg += loss
 
             if epoch % print_every == 0:
@@ -125,8 +125,7 @@ def plot_loss(lr_list):
             n_epochs=setting["num_epochs"],
             hidden_size=setting["hidden_size"],
             n_layers=setting["num_layers"],
-            lr=setting["lr"],
-            optimizer=setting["optimizer"]
+            lr=setting["lr"]
         )
         x = np.arange(0, len(all_losses))
         ax.plot(x, np.array(all_losses), label=f"{setting['lr']}")
@@ -150,7 +149,8 @@ def diff_temp(temp_list):
         chunk = string[start_index: end_index]
         predicted_text = generate(model, prime_str=chunk[:10], predict_len=predict_len, temperature=temperature)    
         print(f"temperature: {temperature}")
-        print(f"prediction: {predicted_text}")
+        print(f"prediction: {predicte
+d_text}")
         print(f"original: {chunk}")
         print("---------------------------------------------------------------")
 
@@ -164,7 +164,6 @@ def custom_train(hyperparam_list):
             hidden_size=setting["hidden_size"],
             n_layers=setting["num_layers"],
             lr=setting["lr"],
-            optimizer=setting["optimizer"]
         )
 
         bpc_score = compute_bpc(model, string)
