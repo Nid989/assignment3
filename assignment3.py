@@ -4,7 +4,6 @@ import torch.nn as nn
 import unidecode
 import string
 import time
-import yaml
 
 from utils import char_tensor, random_training_set, time_since, CHUNK_LEN, get_optimizer, generate_hyperparameters
 from language_model import plot_loss, diff_temp, custom_train, train, generate
@@ -40,22 +39,18 @@ def main():
         action='store_true'
     )
 
-    # load config.yaml file
-    with open(r'config.yaml') as file:
-        config = yaml.full_load(file)
-
     args = parser.parse_args()
 
     all_characters = string.printable
     n_characters = len(all_characters)
 
     if args.default_train:
-        n_epochs = config["default"]["num_epochs"]
+        n_epochs = 3000
         print_every = 100
         plot_every = 10
-        hidden_size = config["default"]["hidden_size"]
-        n_layers = config["default"]["num_layers"]
-        lr = float(config["default"]["lr"])
+        hidden_size = 128
+        n_layers = 2
+        lr = 0.005
 
         decoder = LSTM(
             input_size=n_characters, 
@@ -63,7 +58,7 @@ def main():
             num_layers=n_layers, 
             output_size=n_characters)
 
-        decoder_optimizer = get_optimizer(decoder=decoder, optim=config["default"]["optimizer"], lr=lr)
+        decoder_optimizer = torch.optim.Adam(decoder.parameters(), lr=lr)
 
         start = time.time()
         all_losses = []
@@ -85,18 +80,42 @@ def main():
 
     if args.custom_train:
         
-        hyperparam2idx = {"hidden_size": 1, "num_layers": 2, "optimizer": 3, "lr": 4} # hyperparameters 2 idx mapping
+        # change these values as per your choice and tune only 1 param at time
+        hyperparam_lists = [
+            [{"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},], # tune epochs
+            [{"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},], # tune hidden_size
+            [{"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},], # tune n_layers
+            [{"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},] # tune lr
+        ]
         
-        for key, index in hyperparam2idx.items():
-            print(f"Current tuning parameter: {key}")
-            hyperparam_list = generate_hyperparameters(config=config["analysis"][f"proc_{index}"]) 
+        for hyperparam_list in hyperparam_lists:
             bpc = custom_train(hyperparam_list)
             for setting, (key, value) in zip(hyperparam_list, bpc.items()):
                 print(f"{key} configuration\n{setting}")
                 print("BPC {}: {}".format(key, value))
 
     if args.plot_loss:
-        lr_list = generate_hyperparameters(config["plot_Train_loss"])
+        lr_list = [{"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},
+            {"n_epochs": 3000, "hidden_size": 128, "n_layers": 2, "lr": 0.005},] # tune lr
         plot_loss(lr_list)
 
     if args.diff_temp:
